@@ -11,10 +11,10 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(
-      name: "Lat Pull-Down",
-      price: 499,
-      image_url: "https://www.bellsofsteel.us/wp-content/uploads/2022/10/lat-pulldown-9.webp",
-      description: "Perform lat pulldowns, low rows, curls & more (up to 310 pounds) with this 2-in-1 machine!"
+      name: params[:name],
+      price: params[:price],
+      image_url: params[:image_url],
+      description: params[:description]
     )
     @product.save
     render template: "products/show"
