@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
     if @product.valid?
       render template: "products/show"
     else
-     render json: {error: @product.errors.full_messages}, status: :unprocessable_entity
+      render json: {error: @product.errors.full_messages}, status: :unprocessable_entity
     end
   end
 
