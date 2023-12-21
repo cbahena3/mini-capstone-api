@@ -13,8 +13,9 @@ class ProductsController < ApplicationController
     @product = Product.create(
       name: params[:name],
       price: params[:price],
-      image_url: params[:image_url],
-      description: params[:description]
+      description: params[:description],
+      supplier_id: params[:supplier_id],
+      inventory: params[:inventory]
     )
     if @product.valid?
       render template: "products/show"
@@ -29,7 +30,6 @@ class ProductsController < ApplicationController
     #change attributes
     @product.name = params[:name] || @product.name
     @product.price = params[:price] || @product.price
-    @product.image_url = params[:image_url] || @product.image_url
     @product.description = params[:description] || @product.description
 
     if @product.save

@@ -33,3 +33,13 @@
 #   email: "bum@fitness.com",
 #   phone_number: "800-333-4444"
 # )
+
+image = Image.create(
+  url: "https://images.squarespace-cdn.com/content/v1/57d62869f7e0ab316f51daf8/1619560376175-FUBEMQ2EVU91OCUZ2GV8/all+done",
+  product_id: 1
+)
+
+image = Image.create(
+  url: "https://i5.walmartimages.com/asr/6c6c1246-8caa-4421-974c-52ca65705cf3.f5d65f1974adbed98f3db0b616d6b16a.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF",
+  product_id: 1
+)
