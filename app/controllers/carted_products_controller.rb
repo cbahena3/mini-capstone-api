@@ -1,4 +1,5 @@
 class CartedProductsController < ApplicationController
+
   def index
     @carted_products = CartedProduct.where(user_id: current_user.id, status: "carted")
     render :index
@@ -11,11 +12,8 @@ class CartedProductsController < ApplicationController
     quantity: params[:quantity],
     status: 'carted'
     )
-    if @carted_product.save
-      render :show
-    else
-      render json: {error: @carted_product.errors.full_message}, status: :unprocessable_entity
-    end
+    @carted_product.save
+    render :show
   end
 
   def destroy
