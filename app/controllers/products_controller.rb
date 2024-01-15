@@ -13,11 +13,13 @@ class ProductsController < ApplicationController
   end
 
   def create
+
+    supplier = Supplier.find_by(name: params[:supplier])
     @product = Product.create(
       name: params[:name],
       price: params[:price],
       description: params[:description],
-      supplier_id: params[:supplier_id],
+      supplier_id: supplier.id,
       inventory: params[:inventory]
     )
     if @product.valid?
