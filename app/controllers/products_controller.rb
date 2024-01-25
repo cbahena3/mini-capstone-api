@@ -23,6 +23,12 @@ class ProductsController < ApplicationController
       inventory: params[:inventory]
     )
     if @product.valid?
+      params[:images].each do |image|
+        Image.create(
+          url: "https://static.wikia.nocookie.net/b-dapedia/images/f/f5/Force%3DDragren.jpg/revision/latest?cb=20130830023455",
+          product_id: @product.id
+        )
+      end
       render template: "products/show"
     else
       render json: {error: @product.errors.full_messages}, status: :unprocessable_entity
